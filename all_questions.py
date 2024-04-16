@@ -53,7 +53,7 @@ def question2():
     # The formulas should only use the variable 'p'. The formulas should be
     # a valid Python expression. Use the functions in the math module as
     # required.
-    answers['(c) Weight update'] = "0.5*math.log((1 - p) / p)"
+    answers['(c) Weight update'] = "0.5 * math.log((1 - p) / p)"
 
     # type: float
     # the answer should be correct to 3 significant digits
@@ -201,18 +201,21 @@ def question9():
 
     # type: dict[string,float]
     # keys: ['recall', 'precision', 'F-measure', 'accuracy']
-    answers['(i) metrics'] = None
+    answers['(i) metrics'] = ('recall': 0.5333,
+    'precision': 0.6154,
+    'F-measure': 0.5714,
+    'accuracy': 0.88}
 
     # type: string
     # choices: ['recall', 'precision', 'F-measure', 'accuracy']
-    answers['(i) best metric?'] = None
+    answers['(i) best metric?'] = 'F-measure'
 
     # type: string
     # choices: ['recall', 'precision', 'F-measure', 'accuracy']
-    answers['(i) worst metric?'] = None
+    answers['(i) worst metric?'] = 'accuracy'
 
     # type: explain_string
-    answers['(ii) Explain your choices of best and worst metrics'] = None
+    answers['(ii) Explain your choices of best and worst metrics'] = "The F-measure is considered the best indicator because it accounts for both precision and recall, providing a more balanced view of the algorithm’s performance on the positive class. Accuracy might be considered the worst indicator in this context because it does not differentiate between the types of errors and might be misleading if the classes are imbalanced."
     return answers
 
 
@@ -222,21 +225,21 @@ def question10():
 
     # type: string
     # choices: ['T1', 'T2']
-    answers['(a) better test based on F-measure?'] = None
+    answers['(a) better test based on F-measure?'] = 'T1'
 
     # type: string
     # choices: ['T1', 'T2']
-    answers['(b) better test based on TPR/FPR?'] = None
+    answers['(b) better test based on TPR/FPR?'] = 'T2'
 
     # type: string
     # choices: ['F1', 'TPR/FPR']
-    answers['(c) Which evaluation measure to use between the two tests?'] = None
+    answers['(c) Which evaluation measure to use between the two tests?'] = 'TPR/FPR'
 
     # type: explain_string
-    answers['(c) Which evaluation measure? Explain'] = None
+    answers['(c) Which evaluation measure? Explain'] = "The TPR/FPR ratio is preferable in cancer screening contexts due to the imperative of limiting false positives. It represents an effective balance, ensuring accurate detection of actual cancer cases while simultaneously curtailing the rate of incorrect cancer diagnoses. This is vital in mitigating undue psychological distress for patients and averting superfluous follow-up examinations."
 
     # type: explain_string
-    answers['(d) Example scenario where you would reverse choise in (c)'] = None
+    answers['(d) Example scenario where you would reverse choise in (c)'] = "When patients proceed to confirmatory testing following an initial screening, the F1-Score becomes the more relevant metric. In such cases, it's crucial to strike an equilibrium between precision and recall to guarantee that all genuine cases are identified without subjecting individuals to unnecessary treatments on the basis of false positives."
     return answers
 #-----------------------------------------------------------
 if __name__ == '__main__':
